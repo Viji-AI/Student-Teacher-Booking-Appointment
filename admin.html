@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Student-Teacher Booking Appointment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="admin.html" class="active">Admin</a></li>
+                <li><a href="student.html">Student</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="admin">
+            <h1>Admin Dashboard</h1>
+            <p>Welcome, Admin! Manage teachers and students here.</p>
+
+            <!-- Add Teacher Section -->
+            <div class="task-section">
+                <h2>Add Teacher</h2>
+                <form id="addTeacherForm">
+                    <label for="teacherName">Name:</label>
+                    <input type="text" id="teacherName" placeholder="Enter teacher's name" required>
+                    
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" placeholder="Enter department" required>
+                    
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" placeholder="Enter subject" required>
+                    
+                    <button type="submit">Add Teacher</button>
+                </form>
+            </div>
+
+            <!-- Update/Delete Teacher Section -->
+            <div class="task-section">
+                <h2>Update/Delete Teacher</h2>
+                <form id="updateDeleteTeacherForm">
+                    <label for="teacherID">Teacher ID:</label>
+                    <input type="text" id="teacherID" placeholder="Enter teacher ID" required>
+                    
+                    <label for="updateName">Update Name (if required):</label>
+                    <input type="text" id="updateName" placeholder="Enter new name">
+                    
+                    <label for="updateDepartment">Update Department (if required):</label>
+                    <input type="text" id="updateDepartment" placeholder="Enter new department">
+                    
+                    <label for="updateSubject">Update Subject (if required):</label>
+                    <input type="text" id="updateSubject" placeholder="Enter new subject">
+                    
+                    <button type="button" onclick="updateTeacher()">Update</button>
+                    <button type="button" onclick="deleteTeacher()">Delete</button>
+                </form>
+            </div>
+
+            <!-- Approve Student Registration Section -->
+            <div class="task-section">
+                <h2>Approve Student Registrations</h2>
+                <p>Below are the pending student registrations for approval:</p>
+                <ul id="studentRegistrationList">
+                    <!-- Sample list; in a real app, dynamically populate this -->
+                    <li>Student: John Doe <button onclick="approveStudent('John Doe')">Approve</button></li>
+                    <li>Student: Jane Smith <button onclick="approveStudent('Jane Smith')">Approve</button></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Student-Teacher Booking Appointment. </p>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>
