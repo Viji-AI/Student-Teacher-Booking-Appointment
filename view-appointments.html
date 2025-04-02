@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View Appointments - Student-Teacher Booking Appointment</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><a href="student.html" class="active">Student</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="view-appointments">
+      <h1>View Appointments</h1>
+      <p>Below is a list of your appointments (updated in real time):</p>
+      
+      <!-- Appointments Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Teacher</th>
+            <th>Subject</th>
+          </tr>
+        </thead>
+        <tbody id="appointmentsBody">
+          <tr><td colspan="4">No appointments available</td></tr>
+        </tbody>
+      </table>
+
+      <!-- For testing: a button to add a new appointment -->
+      <button id="simulateAdd">Simulate Add Appointment</button>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Student-Teacher Booking Appointment. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript to simulate real‑time updates via local storage -->
+  <script>
+    // Function to load appointments from local storage and update the table
+    function loadAppointments() {
+      // Retrieve stored appointments (or default to an empty array)
+      const appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+      const appointmentsBody = document.getElementById("appointmentsBody");
+      appointmentsBody.innerHTML = ""; // Clear previous rows
+
+      if (appointments.length === 0) {
+        appointmentsBody.innerHTML = "<tr><td colspan='4'>No appointments available</td></tr>";
+      } else {
+        appointments.forEach(appointment => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${appointment.date || "N/A"}</td>
+            <td>${appointment.time || "N/A"}</td>
+            <td>${appointment.teacher || "N/A"}</td>
+            <td>${appointment.subject || "N/A"}</td>
+          `;
+          appointmentsBody.appendChild(tr);
+        });
+      }
+    }
+
+    // Initial load of appointments
+    loadAppointments();
+
+    // Poll every 2 seconds to simulate real-time updates
+    setInterval(loadAppointments, 2000);
+
+    // For testing purposes: simulate adding a new appointment
+    document.getElementById("simulateAdd").addEventListener("click", () => {
+      const appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+      const newAppointment = {
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString(),
+        teacher: "Mr. Doe",
+        subject: "Physics"
+      };
+      appointments.push(newAppointment);
+      localStorage.setItem("appointments", JSON.stringify(appointments));
+      // Optionally, load immediately after adding
+      loadAppointments();
+    });
+  </script>
+</body>
+</html>
+

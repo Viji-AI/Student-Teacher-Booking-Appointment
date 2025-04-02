@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Student-Teacher Booking Appointment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="teacher-dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="teacher-login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h1>Welcome to Teacher Dashboard</h1>
+            
+            <div class="task-section">
+                <h2>Schedule Appointment</h2>
+                <form id="scheduleForm">
+                    <label for="studentName">Student Name:</label>
+                    <input type="text" id="studentName" required>
+                    
+                    <label for="appointmentTime">Time:</label>
+                    <input type="datetime-local" id="appointmentTime" required>
+                    
+                    <button type="submit">Schedule</button>
+                </form>
+            </div>
+
+            <div class="task-section">
+                <h2>Approve/Cancel Appointment</h2>
+                <ul id="pendingAppointments">
+                    <li>Appointment with John Doe <button onclick="approveAppointment('John Doe')">Approve</button><button onclick="cancelAppointment('John Doe')">Cancel</button></li>
+                    <li>Appointment with Jane Smith <button onclick="approveAppointment('Jane Smith')">Approve</button><button onclick="cancelAppointment('Jane Smith')">Cancel</button></li>
+                </ul>
+            </div>
+
+            <div class="task-section">
+                <h2>View Messages</h2>
+                <ul id="messageList">
+                    <li>Message from Admin: "Meeting scheduled at 3 PM"</li>
+                    <li>Message from Student: "Can I reschedule my appointment?"</li>
+                </ul>
+            </div>
+
+            <div class="task-section">
+                <h2>View All Appointments</h2>
+                <ul id="allAppointments">
+                    <li>Appointment with John Doe - 10:00 AM, April 5</li>
+                    <li>Appointment with Jane Smith - 2:00 PM, April 6</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Student-Teacher Booking Appointment. All rights reserved.</p>
+    </footer>
+
+    <script src="teacher-dashboard.js"></script>
+</body>
+</html>

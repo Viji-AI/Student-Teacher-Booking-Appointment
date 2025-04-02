@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - Student-Teacher Booking Appointment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="appointments.html" class="active">Appointments</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><a href="student.html">Student</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="appointments">
+            <h1>Book an Appointment</h1>
+            <form id="appointmentForm">
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" placeholder="Enter your name" required>
+                
+                <label for="teacherName">Teacher Name:</label>
+                <input type="text" id="teacherName" placeholder="Enter teacher's name" required>
+                
+                <label for="appointmentTime">Time:</label>
+                <input type="datetime-local" id="appointmentTime" required>
+                
+                <button type="submit">Book Appointment</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Student-Teacher Booking Appointment. All rights reserved.</p>
+    </footer>
+
+    <script src="appointement.js"></script>
+</body>
+</html>
